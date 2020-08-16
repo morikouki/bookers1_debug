@@ -14,15 +14,18 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to book_path(@book), notice: "successfully created book!"
     else
+      @books = Book.all
       render 'index'
     end
   end
 
   def edit
+    
   end
 
   def update
-    if @book.update()
+    
+    if @book.update(book_params)
       redirect_to book_path(@book), notice: "successfully updated book!"
     else
       render 'edit'
